@@ -68,5 +68,5 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
 && rm /${OPENCV_VERSION}.zip \
 && rm -r /opencv-${OPENCV_VERSION} 
 RUN ln -s \
-  /usr/local/python/cv2/python-3.8/cv2.cpython-38m-x86_64-linux-gnu.so \
-  /usr/local/lib/python3.8/site-packages/cv2.so
+  /usr/local/python/cv2/python-3.7/cv2.cpython-38m-x86_64-linux-gnu.so \
+  /usr/local/lib/python3.7/site-packages/cv2.so
