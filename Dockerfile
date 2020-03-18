@@ -30,6 +30,8 @@ RUN apt-get update \
         ocl-icd-opencl-dev libcanberra-gtk3-module \
     && rm -rf /var/lib/apt/lists/*
 
+RUN ln -s /usr/include/lapacke.h /usr/include/x86_64-linux-gnu
+
 RUN pip install --upgrade pip
 RUN pip install numpy
 RUN pip install ipython
@@ -50,6 +52,7 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
   -DBUILD_opencv_java=OFF \
   -DOPENCV_EXTRA_MODULES_PATH=/opencv_contrib-${OPENCV_VERSION}/modules \
   -DWITH_CUDA=ON \
+  -DCUDA_ARCH_BIN=6.1 \
   -DWITH_OPENGL=ON \
   -DWITH_OPENCL=ON \
   -DWITH_IPP=ON \
@@ -59,14 +62,14 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
   -DBUILD_TESTS=OFF \
   -DBUILD_PERF_TESTS=OFF \
   -DCMAKE_BUILD_TYPE=RELEASE \
-  -DCMAKE_INSTALL_PREFIX=$(python3.8 -c "import sys; print(sys.prefix)") \
-  -DPYTHON_EXECUTABLE=$(which python3.8) \
-  -DPYTHON_INCLUDE_DIR=$(python3.8 -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") \
-  -DPYTHON_PACKAGES_PATH=$(python3.8 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())") \
+  -DCMAKE_INSTALL_PREFIX=$(python3.6 -c "import sys; print(sys.prefix)") \
+  -DPYTHON_EXECUTABLE=$(which python3.6) \
+  -DPYTHON_INCLUDE_DIR=$(python3.6 -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())") \
+  -DPYTHON_PACKAGES_PATH=$(python3.6 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())") \
   .. \
 && make install \
 && rm /${OPENCV_VERSION}.zip \
 && rm -r /opencv-${OPENCV_VERSION} 
 RUN ln -s \
-  /usr/local/python/cv2/python-3.7/cv2.cpython-38m-x86_64-linux-gnu.so \
-  /usr/local/lib/python3.7/site-packages/cv2.so
+  /usr/local/python/cv2/python-3.6/cv2.cpython-38m-x86_64-linux-gnu.so \
+  /usr/local/lib/python3.6/site-packages/cv2.so
