@@ -26,7 +26,7 @@ RUN apt-get update \
         mc \
         libeigen3-dev \
         libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python-numpy \
-        libtbb2 libtbb-dev libjasper-dev libdc1394-22-dev \
+        libtbb2 libtbb-dev libdc1394-22-dev \
         ocl-icd-opencl-dev libcanberra-gtk3-module \
     && rm -rf /var/lib/apt/lists/*
 
