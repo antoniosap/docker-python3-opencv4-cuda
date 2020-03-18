@@ -24,7 +24,7 @@ RUN apt-get update \
         tmux \
         htop \
         mc \
-        libeigen3-dev \
+        libeigen3-dev libopenblas-dev libopenblas-base liblapacke-dev \
         libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python-numpy \
         libtbb2 libtbb-dev libdc1394-22-dev \
         ocl-icd-opencl-dev libcanberra-gtk3-module \
