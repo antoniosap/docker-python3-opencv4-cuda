@@ -25,7 +25,7 @@ RUN apt-get update \
         htop \
         mc \
         libeigen3-dev libhdf5-dev libopenblas-dev libopenblas-base liblapacke-dev \
-        libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python-numpy \
+        libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python3-dev python-numpy python3-numpy \
         libtbb2 libtbb-dev libdc1394-22-dev \
         ocl-icd-opencl-dev libcanberra-gtk3-module \
     && rm -rf /var/lib/apt/lists/*
@@ -75,3 +75,6 @@ RUN python3 --version
 ##RUN ln -s \
 ##  /usr/local/python/cv2/python-3.6/cv2.cpython-38m-x86_64-linux-gnu.so \
 ##  /usr/local/lib/python3.6/site-packages/cv2.so
+##
+##  /usr/lib/python3/dist-packages
+##
