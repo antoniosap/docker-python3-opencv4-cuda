@@ -72,9 +72,6 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
 && rm -r /opencv-${OPENCV_VERSION}
 RUN python --version
 RUN python3 --version
-##RUN ln -s \
-##  /usr/local/python/cv2/python-3.6/cv2.cpython-38m-x86_64-linux-gnu.so \
-##  /usr/local/lib/python3.6/site-packages/cv2.so
-##
-##  /usr/lib/python3/dist-packages
-##
+RUN ln -s \
+  /usr/lib/python3.6/dist-packages/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so \
+  /usr/lib/python3/dist-packages/cv2.so
