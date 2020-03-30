@@ -76,5 +76,5 @@ RUN python3 --version
 ##  /usr/local/python/cv2/python-3.6/cv2.cpython-38m-x86_64-linux-gnu.so \
 ##  /usr/local/lib/python3.6/site-packages/cv2.so
 ##
-##  /usr/lib/python3/dist-packages
+##  /usr/lib/python3/dist-packages/cv2/python-3.6
 ##
