@@ -18,7 +18,7 @@ RUN apt-get update \
         libtiff-dev \
         libavformat-dev \
         libpq-dev \
-        python-pip \
+        python-pip python3-pip \
         nano \
         curl \
         tmux \
@@ -32,12 +32,18 @@ RUN apt-get update \
 
 RUN ln -s /usr/include/lapacke.h /usr/include/x86_64-linux-gnu
 
-RUN pip install --upgrade pip
-RUN pip install numpy
-RUN pip install ipython
-RUN pip install scipy
-RUN pip install jupyter
-RUN pip install matplotlib
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+
+RUN pip3 install --upgrade pip
+RUN pip3 install numpy
+RUN pip3 install ipython
+RUN pip3 install scipy
+RUN pip3 install jupyter
+RUN pip3 install matplotlib
+RUN pip3 install dlib
+RUN pip3 install imutils
+RUN pip3 install cython
+
 
 WORKDIR /
 ENV OPENCV_VERSION="4.2.0"
@@ -72,9 +78,6 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
 && rm -r /opencv-${OPENCV_VERSION}
 RUN python --version
 RUN python3 --version
-##RUN ln -s \
-##  /usr/local/python/cv2/python-3.6/cv2.cpython-38m-x86_64-linux-gnu.so \
-##  /usr/local/lib/python3.6/site-packages/cv2.so
-##
-##  /usr/lib/python3/dist-packages/cv2/python-3.6
-##
+RUN ln -s \
+  /usr/lib/python3.6/dist-packages/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so \
+  /usr/lib/python3/dist-packages/cv2.so
