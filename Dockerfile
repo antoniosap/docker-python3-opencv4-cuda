@@ -18,14 +18,14 @@ RUN apt-get update \
         libtiff-dev \
         libavformat-dev \
         libpq-dev \
-        python-pip python3-pip \
+        python3-pip \
         nano \
         curl \
         tmux \
         htop \
         mc \
         libeigen3-dev libhdf5-dev libopenblas-dev libopenblas-base liblapacke-dev \
-        libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python3-dev python-numpy python3-numpy \
+        libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python3-dev python3-numpy \
         libtbb2 libtbb-dev libdc1394-22-dev \
         ocl-icd-opencl-dev libcanberra-gtk3-module \
     && rm -rf /var/lib/apt/lists/*
