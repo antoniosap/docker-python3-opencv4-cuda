@@ -35,14 +35,19 @@ RUN ln -s /usr/include/lapacke.h /usr/include/x86_64-linux-gnu
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 RUN pip3 install --upgrade pip
+RUN pip3 install tensorflow
 RUN pip3 install numpy
 RUN pip3 install ipython
 RUN pip3 install scipy
 RUN pip3 install jupyter
+RUN pip3 install moviePy 
+RUN pip3 install imutils
+RUN pip3 install keras
 RUN pip3 install matplotlib
 RUN pip3 install dlib
 RUN pip3 install imutils
 RUN pip3 install cython
+RUN pip3 install pycocotools
 
 
 WORKDIR /
@@ -74,10 +79,10 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
   -DPYTHON_PACKAGES_PATH=$(python3.6 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())") \
   .. \
 && make install \
-&& rm /${OPENCV_VERSION}.zip \
-&& rm -r /opencv-${OPENCV_VERSION}
+&& rm /${OPENCV_VERSION}.zip ## && rm -r /opencv-${OPENCV_VERSION}
 RUN python --version
 RUN python3 --version
 RUN ln -s \
   /usr/lib/python3.6/dist-packages/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so \
   /usr/lib/python3/dist-packages/cv2.so
+ENV QT_X11_NO_MITSHM=1
