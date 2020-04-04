@@ -40,7 +40,6 @@ RUN pip3 install ipython
 RUN pip3 install scipy
 RUN pip3 install cython
 
-
 WORKDIR /
 ENV OPENCV_VERSION="4.2.0"
 RUN wget https://github.com/opencv/opencv_contrib/archive/${OPENCV_VERSION}.zip \
